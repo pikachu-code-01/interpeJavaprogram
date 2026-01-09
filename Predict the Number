@@ -1,0 +1,51 @@
+ // the code is uploaded in the replit.com 
+import java.util.Scanner;// import scanner library
+import java.util.Random; // import random library
+public class Main {
+  public static void main(String[] args) {
+   Scanner input = new Scanner(System.in);
+    String playGame = "yes";
+    // Start or Stop the game
+    while (playGame.equals("yes"))
+    {
+      Random obj = new Random();
+      int randomNum = obj.nextInt(100);
+      int predict  = -1;
+      int  attempts = 0;
+      // Find  if the game has come to an end or not
+      while(predict != randomNum)
+        { // print this words to the user
+          System.out.println("Enter your guessed number  (1-100):");
+          // take the input from the user
+          predict = input.nextInt();
+          // increase the attempts by 1
+          attempts++;
+          // check if the user has guessed the correct number
+        if(predict == randomNum)
+        {
+          // print the number of attempts if user has guessed the correct number
+          System.out.println("Congratulations! You guessed the correct number in " + attempts + " attempts.");
+          // ask the user if he wants to play again
+           System.out.println("Do you want to play again? (yes/no):");
+           // take the input from the user again if user says yes
+           playGame = input.next().toLowerCase();
+        }
+          // check if the user has guessed the number higher than the random number
+          else if(predict > randomNum)
+          {
+            // print this words to the user
+            System.out.println("Too high! Try again.");
+          }
+             // check if the user has guessed the number lower than the random number
+          else {
+            // print this words to the user
+            System.out.println("Too low! Try again.");
+          }
+        }    
+    }
+    //stop the input if user says no
+    input.close();
+  }
+}
+
+  
